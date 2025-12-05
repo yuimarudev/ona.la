@@ -69,12 +69,12 @@ export default component$(() => {
     });
   const page = useSignal(0);
   const description = (
-    <>
+    <div class={styles["description"]}>
       <p>現在{articles.length}件の記事が存在します。</p>
-      <p class={styles["description"]}>
+      <p>
         使い方については<Link href="/about">知る</Link>をみてください。
       </p>
-    </>
+    </div>
   );
 
   if (elements.length < 10) {
