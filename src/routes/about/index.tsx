@@ -17,7 +17,7 @@ export default component$(() => {
         見出しのハッシュはアンカーとなっており、パーマリンクとしてコピーできます。
       </p>
       <p>
-        記事の編集履歴は<a href={REPO_URL}>Gitリポジトリ</a>
+        記事の編集履歴は<a class={styles["link"]} href={REPO_URL}>Gitリポジトリ</a>
         から確認することができます。
       </p>
       <p>
