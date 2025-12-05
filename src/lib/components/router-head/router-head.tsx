@@ -17,7 +17,6 @@ export const RouterHead = component$(() => {
       <link rel="icon" type="image/png" href="/favicon.png" />
       <link rel="icon" type="image/webp" href="/favicon.webp" />
       <meta name="theme-color" content="#0f172b" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
         href={`/fonts/${btoa(
           "/" +
