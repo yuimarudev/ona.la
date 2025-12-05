@@ -9,7 +9,9 @@ export const Share = component$<{ article: Awaited<ReturnType<typeof parse>> }>(
   ({ article }) => {
     const copied = useSignal(false);
     const loc = useLocation();
-    const { title, subtitle, author } = article.meta;
+    // そのうち消す
+    const author = "yuimarudev";
+    const { title, subtitle } = article.meta;
     const texts = [title, subtitle, "-", `${BRAND} (@${author})`].filter(
       (x) => x != null,
     );
