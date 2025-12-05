@@ -13,10 +13,12 @@
 
 .link:visited:hover {
   color: var(--link-visited);
+  text-decoration: underline;
 }
 
 .link:hover {
   color: var(--link);
+  text-decoration: underline;
 }
 
 .strong {
