@@ -194,12 +194,12 @@ export const head: DocumentHead = ({ resolveValue, url }) => {
     const description = textContents.join(" ").slice(0, 200);
     const title = meta.title + " - " + BRAND;
     const filename =
-      (url.pathname
+      url.pathname
         .split("/")
         .filter((x) => x)
-        .at(-1) ?? "").slice(1);
+        .at(-1) ?? "";
     const ogFilename = (articles as any).find(
-      (x: any) => x.filename === filename,
+      (x: any) => x.filename === filename
     )?.og;
     const blogpost = {
       "@context": "https://schema.org",
