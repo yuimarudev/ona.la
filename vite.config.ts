@@ -67,17 +67,6 @@ export default defineConfig(async ({}): Promise<UserConfig> => {
       }),
       qwikVite(),
       tsconfigPaths({ root: "." }),
-      {
-        name: "vite-plugin-build-scripts",
-        enforce: "pre",
-        apply: (config, { command }) =>
-          command === "build" && !config.build?.ssr,
-        buildStart: async () => {
-          await import("./scripts/generateIndex.js");
-          await import("./scripts/generateOGImage.js");
-          await import("./scripts/subsetFont.js");
-        },
-      },
     ],
     // This tells Vite which dependencies to pre-build in dev mode.
     optimizeDeps: {
