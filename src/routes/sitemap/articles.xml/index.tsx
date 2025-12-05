@@ -15,7 +15,7 @@ const template = `<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="t
 
 export const onGet: RequestHandler = async ({ send, url }) => {
   const urls = articles.map((article) => {
-    const loc = `${url.protocol}//${url.host}/@${article.filename}`;
+    const loc = `${url.protocol}//${url.host}/@${article.filename}/`;
     const lastmod = new Date(
       (article.updated ?? article.published) + "T09:00",
     ).toISOString();
