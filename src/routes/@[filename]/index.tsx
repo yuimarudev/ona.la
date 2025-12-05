@@ -199,7 +199,7 @@ export const head: DocumentHead = ({ resolveValue, url }) => {
         .filter((x) => x)
         .at(-1) ?? "";
     const ogFilename = (articles as any).find(
-      (x: any) => x.filename === filename
+      (x: any) => x.filename === filename.slice(1)
     )?.og;
     const blogpost = {
       "@context": "https://schema.org",
