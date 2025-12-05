@@ -9,7 +9,7 @@ export const onGet: RequestHandler = async ({ send, url }) => {
     return `
     <url>
       <loc>${loc}</loc>
-      <lastmod>2025-12-05T09:00</lastmod>
+      <lastmod>2025-12-05</lastmod>
     </url>
 `;
   });
