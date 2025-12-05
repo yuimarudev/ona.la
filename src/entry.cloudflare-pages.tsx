@@ -34,9 +34,9 @@ export const fetch = async (
   const origin = new URL(req.url);
   const cspDirectives = [
     "default-src 'self' 'unsafe-inline' www.youtube-nocookie.com platform.twitter.com",
-    "connect-src 'self' " + origin.host,
+    "connect-src 'self' r2." + origin.hostname,
     "font-src 'self' fonts.gstatic.com",
-    "img-src 'self' 'unsafe-inline' data: " + origin.host,
+    "img-src 'self' 'unsafe-inline' data: r2." + origin.hostname,
     `script-src 'self' static.cloudflareinsights.com 'unsafe-inline' platform.twitter.com`,
     "style-src 'self' fonts.googleapis.com fonts.gstatic.com 'unsafe-inline'",
     "object-src 'none'",
