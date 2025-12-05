@@ -206,7 +206,10 @@ export const head: DocumentHead = ({ resolveValue, url }) => {
       "@type": "BlogPosting",
       headline: meta.title,
       description: description + "……",
-      image: url.toString().replace(filename, ogFilename ?? ""),
+      image: url
+        .toString()
+        .replace(filename, ogFilename ?? "")
+        .slice(0, -1),
       datePublished: meta.published,
       dateModified: meta.updated ?? meta.published,
       mainEntityOfPage: {
@@ -297,7 +300,10 @@ export const head: DocumentHead = ({ resolveValue, url }) => {
         },
         {
           property: "og:image",
-          content: url.toString().replace(filename, ogFilename ?? ""),
+          content: url
+            .toString()
+            .replace(filename, ogFilename ?? "")
+            .slice(0, -1),
         },
         {
           name: "twitter:title",
