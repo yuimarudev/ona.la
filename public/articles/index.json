@@ -1,9 +1,9 @@
 [
   {
-    "preview": "こんにちは、ゆいまるです。今日はQwikでブログを作ってみたので、思い立ったきっかけとか使ったものとか感想とか書いていこうかなと思います。 使ったもの・構成 Markdownをパースして適当にレンダリングしてます。 Qwik Qwik City †理論上最強†になるために kiso.css 日本語を美しく表示するために 後述しますが、マジで最高です。 shiki コードブロックをハイライトするため",
+    "preview": "こんにちは、ゆいまるです。今日はQwikでブログを作ってみたので、思い立ったきっかけとか使ったものとか感想とか書いていこうかなと思います。 使ったもの・構成 ライブラリ Qwik Qwik City †理論上最強†になるために kiso.css 日本語を美しく表示するために 後述しますが、マジで最高です shiki コードブロックをハイライトするために 苦しい。 remark Markdownをパ",
     "filename": "hello",
     "published": "2025-12-02",
-    "updated": "2025-12-02",
+    "updated": "2025-12-05",
     "title": "Qwikでブログを作る",
     "subtitle": "逆張りオタクは最強を目指したかった",
     "tags": [
@@ -19,6 +19,6 @@
       "url": "https://youtu.be/wRBNKv7eRiI",
       "alternative_image_url": "https://r2.ona.la/404.png"
     },
-    "og": "hello-311ed0dce8c371e0f9885a0c10ea6edf193b2f69.webp"
+    "og": "hello-ecf00fa6865bd476e8f908c85261599621c33c95.webp"
   }
 ]
