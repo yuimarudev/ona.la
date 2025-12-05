@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-metadata {
+  display: flex;
+  align-self: normal;
+  justify-content: space-between;
+}
+
+.container hr {
+  width: 100%;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+}
+
+.date svg {
+  margin-right: 0.25em;
+}
+
+.allow-break {
+  line-break: anywhere;
+}
+
+.no-break {
+  word-wrap: normal;
+  word-break: keep-all;
+}
+
+.motd {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.meta * {
+  text-align: right;
+  padding: 0;
+}

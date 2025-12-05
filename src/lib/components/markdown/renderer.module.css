@@ -1,0 +1,54 @@
+.heading-anchor {
+  text-decoration: underline;
+  text-emphasis: unset;
+  user-select: none;
+  padding-right: 0.25em;
+  color: var(--link);
+}
+
+.link {
+  color: var(--fg);
+  text-decoration: underline;
+}
+
+.link:visited:hover {
+  color: var(--link-visited);
+}
+
+.link:hover {
+  color: var(--link);
+}
+
+.strong {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.inline-children * {
+  display: inline;
+}
+
+.quote {
+  padding-left: 0.5em;
+  border-left: 5px solid var(--acc);
+}
+
+.paragraph {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.hr {
+  color: var(--fg);
+}
+
+.list {
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+.list-item {
+  margin-block: 0.5rem;
+  margin-left: 1rem;
+  list-style-type: disc;
+}

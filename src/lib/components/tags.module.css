@@ -1,0 +1,14 @@
+.tag {
+  margin: 0.25em;
+  padding: 0.25em;
+  border-radius: 10%;
+  background-color: var(--acc);
+  font-size: x-small;
+  display: inline-block;
+  color: var(--link);
+}
+
+.no-break {
+  word-wrap: normal;
+  word-break: keep-all;
+}

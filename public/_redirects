@@ -1,0 +1,2 @@
+# https://developers.cloudflare.com/pages/platform/redirects/
+/sitemap.xml /sitemap/index.xml 301

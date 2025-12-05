@@ -1,0 +1,74 @@
+@import "kiso.css";
+
+:root {
+  --fg: oklch(0.929 0.013 255.508);
+  --bg: oklch(0.208 0.042 265.755);
+  --acc: oklch(0.372 0.044 257.287);
+  --link: oklch(0.769 0.188 70.08);
+  --link-visited: oklch(0.685 0.169 237.323);
+  background-color: var(--bg);
+  color: var(--fg);
+  color-scheme: dark;
+  font-family: "IBM Plex Sans JP", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+hr {
+  border-radius: 1px;
+  border-bottom: none;
+  color: var(--fg);
+}
+
+body {
+  min-height: 100dvh;
+  margin: 2em;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+.twitter-tweet iframe {
+  border-radius: 16px;
+}
+
+button {
+  border: none;
+  color: var(--link);
+}
+
+button:disabled {
+  border: none;
+  color: var(--acc);
+}
+
+span code,
+p code {
+  background-color: var(--acc);
+  font-family: "Courier New", Courier, monospace;
+  border-radius: 4px;
+  margin: auto 0.25em;
+  padding: auto 0.25em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-feature-settings:
+    "palt" 1,
+    "kern" 1;
+  text-autospace: no-autospace;
+}

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /cdn-cgi/
+Disallow: /build/
+
+Sitemap: /sitemap/index.xml

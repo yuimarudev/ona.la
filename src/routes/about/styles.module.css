@@ -1,0 +1,18 @@
+.link {
+  color: var(--link);
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.list {
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+.list-item {
+  margin-block: 0.5rem;
+  margin-left: 1rem;
+  list-style-type: disc;
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "悪意駆動型人生",
+  "short_name": "ona.la",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0f172b",
+  "description": "全員殺す"
+}
