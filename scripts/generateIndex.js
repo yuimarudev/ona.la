@@ -33,6 +33,7 @@ const articles = await Promise.all(
     return {
       preview: preview.join(" ").slice(0, 200),
       filename,
+      og: "",
       ...meta,
     };
   }),
