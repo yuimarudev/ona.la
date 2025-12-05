@@ -5,7 +5,7 @@ const pages = ["/about", "/"];
 
 export const onGet: RequestHandler = async ({ send, url }) => {
   const urls = pages.map((endpoint) => {
-    const loc = `${url.protocol}//${url.host}${endpoint}`;
+    const loc = `${url.protocol}//${url.host}${endpoint}/`;
     return `
     <url>
       <loc>${loc}</loc>
