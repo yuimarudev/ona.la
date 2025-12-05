@@ -50,7 +50,6 @@ functions/**/*.js
 !.dev.vars.example
 !.env.example
 
-public/articles/index.json
 public/articles/*.webp
 public/fonts/*.woff2
 public/fonts/*.css

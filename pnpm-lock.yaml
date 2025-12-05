@@ -50,6 +50,9 @@ importers:
       ignore:
         specifier: ^7.0.5
         version: 7.0.5
+      kiso.css:
+        specifier: ^1.2.2
+        version: 1.2.2
       lizod:
         specifier: ^0.2.7
         version: 0.2.7(typescript@5.4.5)
@@ -1487,6 +1490,9 @@ packages:
     resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
     engines: {node: '>=6'}
     hasBin: true
+
+  kiso.css@1.2.2:
+    resolution: {integrity: sha512-lv5pmbiqfov6DRUnHmtqEit5DzAtFAtKL+Pw0X2cBHtq/fBmXkVe+DAFnTdvawuA8f3vly7yaLLha0nAMlSz5A==}
 
   launch-editor@2.12.0:
     resolution: {integrity: sha512-giOHXoOtifjdHqUamwKq6c49GzBdLjvxrd2D+Q4V6uOHopJv7p9VJxikDsQ/CBXZbEITgUqSVHXLTG3VhPP1Dg==}
@@ -3406,6 +3412,8 @@ snapshots:
       argparse: 2.0.1
 
   json5@2.2.3: {}
+
+  kiso.css@1.2.2: {}
 
   launch-editor@2.12.0:
     dependencies:
