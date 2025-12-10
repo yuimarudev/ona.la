@@ -43,6 +43,10 @@
   text-decoration: underline;
 }
 
+.date svg {
+  margin-right: 0.25em;
+}
+
 main {
   flex-grow: 1;
 }

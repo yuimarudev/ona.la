@@ -59,7 +59,7 @@ export default component$(() => {
             </h3>
             <p class={styles["preview"]}>{x.preview}</p>
             <Tags tags={x.tags} />
-            <p>
+            <p class={styles["date"]}>
               <GoCalendar16 aria-label="公開日" />
               <DateFormatter date={new Date(x.published + "T09:00")} />
             </p>
