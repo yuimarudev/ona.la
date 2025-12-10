@@ -205,6 +205,7 @@ export const head: DocumentHead = ({ resolveValue, url }) => {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       headline: meta.title,
+      author: person,
       description: description + "……",
       image: url.origin + "/articles/" + ogFilename,
       datePublished: meta.published,
