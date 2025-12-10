@@ -13,6 +13,7 @@ import {
 } from "@builder.io/qwik-city/middleware/cloudflare-pages";
 import qwikCityPlan from "@qwik-city-plan";
 import render from "./entry.ssr";
+import { HOST } from "./lib/consts";
 
 declare global {
   type QwikCityPlatform = PlatformCloudflarePages;
@@ -27,7 +28,7 @@ export const fetch = async (
       fetch: (req: Request) => Response;
     };
   },
-  ctx: PlatformCloudflarePages["ctx"],
+  ctx: PlatformCloudflarePages["ctx"]
 ) => {
   const res = await requestHandler(req, env, ctx);
   const newResponse = new Response(res.body, res);
@@ -48,7 +49,7 @@ export const fetch = async (
   newResponse.headers.set("X-Frame-Options", "SAMEORIGIN");
   newResponse.headers.set(
     "Permissions-Policy",
-    "interest-cohort=(), browsing-topics=()",
+    "interest-cohort=(), browsing-topics=()"
   );
   newResponse.headers.set("X-Permitted-Cross-Domain-Policies", "none");
   newResponse.headers.set("Referrer-Policy", "no-referrer");
@@ -57,7 +58,7 @@ export const fetch = async (
 
   newResponse.headers.set(
     "X-For-Curl",
-    "you can fetch `/articles/index.json` and `/articles/[filename].md`",
+    "you can fetch `/articles/index.json` and `/articles/[filename].md`"
   );
   newResponse.headers.set("X-For-Otaku", "follow me at Twitter: @contrafactio");
 
@@ -70,6 +71,10 @@ export const fetch = async (
     newResponse.headers.set("Content-Type", "text/markdown; charset=utf-8");
   } else if (req.url.endsWith(".xml")) {
     newResponse.headers.set("Content-Type", "text/xml; charset=utf-8");
+  }
+
+  if (origin.host !== HOST) {
+    newResponse.headers.set("X-Robots-Tag", "noindex");
   }
 
   return newResponse;

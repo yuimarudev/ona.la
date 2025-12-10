@@ -9,6 +9,8 @@ export const LD_JSON_ALTERNATE_NAMES = [
   "ona.la",
   "blog.yuimaru.dev",
 ];
+export const HOST = "ona.la";
+
 
 export const generateLdJsonPerson = (url: URL) => {
   return {
