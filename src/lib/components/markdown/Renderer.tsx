@@ -34,7 +34,7 @@ export const Renderer = component$<{
       switch (node.type) {
         case "blockquote":
           return (
-            <blockquote class={styles["quote"]}>
+            <blockquote key={key} class={styles["quote"]}>
               <Renderer {...props} />
             </blockquote>
           );
@@ -109,7 +109,9 @@ export const Renderer = component$<{
         case "html":
           return <div key={key} dangerouslySetInnerHTML={node.value} />;
         case "image":
-          return <img alt={node.alt ?? node.title ?? ""} src={node.url} />;
+          return (
+            <img key={key} alt={node.alt ?? node.title ?? ""} src={node.url} />
+          );
         case "code":
           return <Code {...node} key={key} />;
         case "inlineCode":
@@ -139,5 +141,5 @@ export const Renderer = component$<{
     });
 
     return result;
-  },
+  }
 );
