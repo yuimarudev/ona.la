@@ -55,12 +55,25 @@ const /** @type {{route: string, chars: string[], codes: string[]}[]} */ targets
         ],
         codes: [],
       },
+      {
+        route: "/404",
+        chars: [
+          ...new Set([
+            ..."404",
+            ..."ここには何もありません",
+            ..."よくわかりませんがみなさん出口を出て",
+            ..."左側",
+            ..."に進まれるみたいです",
+          ]),
+        ],
+        codes: [],
+      },
     ];
 const processer = remark().use(remarkGfm).use(remarkFrontmatter, "toml");
 
 for (const article of articles) {
   const raw = await readFile(
-    join("public", "articles", article.filename + ".md"),
+    join("public", "articles", article.filename + ".md")
   );
   const processed = await processer.process(raw);
   const parsed = processer.parse(processed);
@@ -147,13 +160,13 @@ base.sort((a, b) => (a.codePointAt(0) ?? 0) - (b.codePointAt(0) ?? 0));
 
 for (const group of commons) {
   group.chars = [...new Set(group.chars)].sort(
-    (a, b) => (a.codePointAt(0) ?? 0) - (b.codePointAt(0) ?? 0),
+    (a, b) => (a.codePointAt(0) ?? 0) - (b.codePointAt(0) ?? 0)
   );
 }
 
 for (const [route, chars] of owns) {
   const sorted = [...new Set(chars)].sort(
-    (a, b) => (a.codePointAt(0) ?? 0) - (b.codePointAt(0) ?? 0),
+    (a, b) => (a.codePointAt(0) ?? 0) - (b.codePointAt(0) ?? 0)
   );
   owns.set(route, sorted);
 }
@@ -164,24 +177,24 @@ for (const target of targets) {
   if (target.codes.length) {
     codes.set(
       target.route,
-      [...new Set(target.codes)].sort((a, b) => (a > b ? 1 : -1)),
+      [...new Set(target.codes)].sort((a, b) => (a > b ? 1 : -1))
     );
   }
 }
 
 const ctx = new GlyphtContext();
 const plexBold = new Uint8Array(
-  (await readFile(join("fonts", "IBMPlexSansJP", "Bold.ttf"))).buffer,
+  (await readFile(join("fonts", "IBMPlexSansJP", "Bold.ttf"))).buffer
 );
 const plexRegular = new Uint8Array(
-  (await readFile(join("fonts", "IBMPlexSansJP", "Regular.ttf"))).buffer,
+  (await readFile(join("fonts", "IBMPlexSansJP", "Regular.ttf"))).buffer
 );
 const fonts = await ctx.loadFonts([plexBold, plexRegular], { transfer: true });
 const compresser = new WoffCompressionContext();
 const baseRange = toUnicoderange(base);
 const baseFont = await compressAndSubsetFonts(fonts, compresser, baseRange);
 const baseHash = Buffer.from(
-  await crypto.subtle.digest("SHA-1", Buffer.from(base.join())),
+  await crypto.subtle.digest("SHA-1", Buffer.from(base.join()))
 ).toString("hex");
 
 const commonFonts = await Promise.all(
@@ -190,14 +203,14 @@ const commonFonts = await Promise.all(
     const [bold, regular] = await compressAndSubsetFonts(
       fonts,
       compresser,
-      range,
+      range
     );
     const hash = Buffer.from(
-      await crypto.subtle.digest("SHA-1", Buffer.from(common.chars.join())),
+      await crypto.subtle.digest("SHA-1", Buffer.from(common.chars.join()))
     ).toString("hex");
 
     return { hash, bold, regular, routes: common.routes, range };
-  }),
+  })
 );
 
 /** @type {Map<string, {hash: string, bold: Uint8Array, regular: Uint8Array, range: string} | null>} */
@@ -212,10 +225,10 @@ for (const [route, chars] of owns.entries()) {
   const [bold, regular] = await compressAndSubsetFonts(
     fonts,
     compresser,
-    range,
+    range
   );
   const hash = Buffer.from(
-    await crypto.subtle.digest("SHA-1", Buffer.from(chars.join())),
+    await crypto.subtle.digest("SHA-1", Buffer.from(chars.join()))
   ).toString("hex");
 
   ownFontsMap.set(route, { route, hash, bold, regular, range });
@@ -224,7 +237,7 @@ for (const [route, chars] of owns.entries()) {
 await writeFile(join("public", "fonts", baseHash + "-bold.woff2"), baseFont[0]);
 await writeFile(
   join("public", "fonts", baseHash + "-regular.woff2"),
-  baseFont[1],
+  baseFont[1]
 );
 
 await writeFonts(commonFonts);
@@ -253,21 +266,21 @@ for (const route of allRoutes) {
           "normal",
           400,
           `/fonts/${hash}-regular.woff2`,
-          range,
+          range
         ) +
         fontFace(
           "'IBM Plex Sans JP'",
           "bold",
           700,
           `/fonts/${hash}-bold.woff2`,
-          range,
-        ),
+          range
+        )
     )
     .join("");
 
   await writeFile(
     join("public", "fonts", Buffer.from(route).toString("base64url") + ".css"),
-    css,
+    css
   );
 }
 
@@ -281,11 +294,11 @@ async function writeFonts(list) {
   for (const item of list) {
     await writeFile(
       join("public", "fonts", item.hash + "-bold.woff2"),
-      item.bold,
+      item.bold
     );
     await writeFile(
       join("public", "fonts", item.hash + "-regular.woff2"),
-      item.regular,
+      item.regular
     );
   }
 }
