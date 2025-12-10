@@ -55,7 +55,7 @@ export const head: DocumentHead = ({ url }) => {
     scripts: [
       {
         script: JSON.stringify([person]),
-        props: { type: "application/json+ld" },
+        props: { type: "application/ld+json" },
       },
     ],
     links: [{ rel: "stylesheet", href: "/NDA0.css" }],

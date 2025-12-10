@@ -154,7 +154,7 @@ export const head: DocumentHead = ({ url }) => {
     scripts: [
       {
         script: JSON.stringify([person, website, blog]),
-        props: { type: "application/json+ld" },
+        props: { type: "application/ld+json" },
       },
     ],
   };

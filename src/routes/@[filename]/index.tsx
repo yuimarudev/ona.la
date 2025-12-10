@@ -236,7 +236,7 @@ export const head: DocumentHead = ({ resolveValue, url }) => {
 
     scripts.push({
       script: JSON.stringify([person, blogpost, breadcrumbs]),
-      props: { type: "application/json+ld" },
+      props: { type: "application/ld+json" },
     });
 
     if (meta.motd) {
