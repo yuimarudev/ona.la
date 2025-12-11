@@ -1,8 +1,19 @@
+.codeblock {
+  color: var(--code-fg);
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .codeblock pre {
-  background-color: #24292e;
+  background-color: var(--code-bg);
   border-radius: 0 0 4px 4px;
   padding: 1em;
-  overflow-x: scroll;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.codeblock code {
+  display: block;
+  white-space: pre;
 }
 
 .codeblock-header {
@@ -13,11 +24,15 @@
 
 .codeblock-header-item {
   border-radius: 4px 4px 0 0;
-  background-color: #24292e;
+  background-color: var(--code-bg);
   padding: 0.25em 0.5em;
   width: max-content;
+  color: var(--code-fg);
 }
 
 .copy {
   border: none;
+  background: transparent;
+  color: var(--code-fg);
+  cursor: pointer;
 }

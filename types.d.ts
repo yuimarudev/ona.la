@@ -1,4 +1,5 @@
 import type { Data, Literal, RootContentMap } from "mdast";
+import type { LRParser } from "@lezer/lr";
 
 interface Toml extends Literal {
   type: "toml";
@@ -14,6 +15,7 @@ declare module "mdast" {
 
 declare global {
   var twttr: undefined | { widgets?: { load: () => {} } };
+  var parsers: Map<string, LRParser>;
 }
 
 declare module "@articles" {
