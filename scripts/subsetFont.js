@@ -13,6 +13,7 @@ import {
   toUnicoderange,
   parseTomlValue,
 } from "./utils.js";
+import { load } from "cheerio";
 
 await cleanUp();
 
@@ -21,6 +22,13 @@ const label = "[Generate] /fonts/*.woff2 and /fonts/*.css";
 console.log("Generating /fonts/*.woff2 and /fonts/*.css");
 console.time(label);
 
+const about = load(
+  (await readFile("src/routes/about/index.tsx", "utf-8"))
+    .split("<>")
+    .at(1)
+    .split("</>")
+    .at(0)
+);
 const /** @type {{route: string, chars: string[], codes: string[]}[]} */ targets =
     [
       {
@@ -45,15 +53,8 @@ const /** @type {{route: string, chars: string[], codes: string[]}[]} */ targets
       },
       {
         route: "/about",
-        chars: [
-          ...new Set([
-            ...(await readFile("src/routes/about/index.tsx", "utf-8"))
-              .split("<>")[1]
-              .split("</>")
-              .at(0),
-          ]),
-        ],
-        codes: [],
+        chars: [...new Set([...about("*:not(code)").text()])],
+        codes: [...new Set([...about("code").text()])],
       },
       {
         route: "/404",
