@@ -27,7 +27,7 @@
   "devDependencies": {
     "@builder.io/qwik": "latest",
     "@builder.io/qwik-city": "^1.18.0",
-    "@cloudflare/workers-types": "^4.20251202.0",
+    "@cloudflare/workers-types": "^4.20260109.0",
     "@fig/lezer-bash": "^1.2.5",
     "@glypht/bundler-utils": "^0.0.8",
     "@glypht/core": "^0.0.8",
