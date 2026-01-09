@@ -226,7 +226,7 @@ OK
 そして、正しく設定されているか確認するために、`AT+CGDCONT?`を送信しています。注意点として、ModemManager使用中など他のソフトウェアが制御をしている場合やモデムの調子が悪い場合、最後まで表示されないことがあるので、`OK`が出力されるまで送信する必要があります。また、`2`,`3`,`4`が存在しない場合、発信やSMSの送受信ができないので、設定する必要があります。[^3]
 
 ```command:bash
-# 好きなツールを利用してください。screen 等で接続した場合、local echo が有効になっていないため自分の打ったものが見えない場合があります。
+# 好きなツールを利用してください。screen等で接続した場合、local echoが有効になっていないため自分の打ったものが見えない場合があります。
 [idolm@ster ~]$ sudo picocom -c /dev/ttyUSB3
 
 AT
@@ -635,6 +635,6 @@ ModemManager使用中（というよりかは、通信が発生していると�
 
 ---
 
-[^1]: `cmake .. -DUSE_SYSTEM_DEPS=ON -DLPAC_WITH_APDU_QMI=ON -DLPAC_WITH_APDU_AT=ON`でビルドし、`LPAC_AT_DEBUG=1 LPAC_APDU=at LPAC_APDU_DEVICE=/dev/ttyUSB3 lpac ...`で成功した。試験的なものであるため、実行時に警告が出る。
+[^1]: `cmake -DUSE_SYSTEM_DEPS=ON -DLPAC_WITH_APDU_QMI=ON -DLPAC_WITH_APDU_AT=ON`でビルドし、`LPAC_AT_DEBUG=1 LPAC_APDU=at LPAC_APDU_DEVICE=/dev/ttyUSB3 lpac ...`で成功した。試験的なものであるため、実行時に警告が出る。
 [^2]: 本当によくわかっていない。助けてほしい。
 [^3]: `2`については不明。
