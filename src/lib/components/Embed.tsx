@@ -37,10 +37,14 @@ export const Embed = component$<{
         </>
       );
     } else if (/(www\.)?(youtu\.be|youtube\.com)/.test(url.hostname)) {
+      const id =
+        new URLSearchParams(url.href).get("v") ??
+        url.pathname.split("/").at(-1);
+
       output.value = (
         <iframe
           style={{ height: "18em", width: "32em" }}
-          src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?si=KX7B0pR2HSFyM5jU&amp;controls=0"
+          src={`https://www.youtube-nocookie.com/embed/${id}&amp;controls=0`}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
