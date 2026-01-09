@@ -38,7 +38,7 @@ export const Footnote = component$<{
         href={`#footnote-ref-${identifier}`}
         aria-label="参照先へ戻る"
       >
-        🔙
+        ↩︎戻る
       </a>
     </div>
   );
