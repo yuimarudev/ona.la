@@ -34,7 +34,7 @@
     "@lezer/highlight": "^1.2.3",
     "@lezer/javascript": "^1.5.4",
     "@lezer/lr": "^1.4.5",
-    "@napi-rs/canvas": "^0.1.83",
+    "@napi-rs/canvas": "^0.1.88",
     "@qwikest/icons": "^0.0.13",
     "@tsconfig/strictest": "^2.0.8",
     "@types/mdast": "^4.0.4",
