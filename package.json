@@ -41,7 +41,7 @@
     "@types/node": "20.19.0",
     "cheerio": "^1.1.2",
     "feed": "^5.1.0",
-    "globals": "16.4.0",
+    "globals": "17.0.0",
     "ignore": "^7.0.5",
     "kiso.css": "^1.2.2",
     "lezer-toml": "^1.0.0",
