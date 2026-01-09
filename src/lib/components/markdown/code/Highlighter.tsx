@@ -86,7 +86,6 @@ export const Highlighter = component$<{ lang: string; code: string }>(
 
     useVisibleTask$(async () => {
       jsx.value = await jsxResource.value;
-      console.log(jsx.value);
     });
 
     return jsx.value.length ? (

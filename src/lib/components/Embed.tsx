@@ -37,9 +37,7 @@ export const Embed = component$<{
         </>
       );
     } else if (/(www\.)?(youtu\.be|youtube\.com)/.test(url.hostname)) {
-      const id =
-        new URLSearchParams(url.href).get("v") ??
-        url.pathname.split("/").at(-1);
+      const id = url.searchParams.get("v") ?? url.pathname.split("/").at(-1);
 
       output.value = (
         <iframe
