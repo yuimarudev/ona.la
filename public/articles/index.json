@@ -1,5 +1,29 @@
 [
   {
+    "preview": "はじめに EC25-J (EC25JFAR06A06M4G),  9eSIM (v3) ,  anzu , ModemManager, systemd-networkd,  hayate ,  chatty を使用してeSIMプロファイルへの書き込みをしたり、インターネットと疎通したり、117への発信・SMSの送受信に成功したので、忘備録として手法を書いていきます。 参考までに、筆者の環境はこのよ",
+    "filename": "ec25-j",
+    "published": "2026-01-08",
+    "title": "EC25-J(+9eSIM)に全部賭けろ",
+    "tags": [
+      "モバイルネットワーク",
+      "ハードウェア",
+      "EC25-J",
+      "9eSIM",
+      "eUICC",
+      "eSIM",
+      "LPA"
+    ],
+    "author": {
+      "name": "ゆいまる",
+      "link": "https://github.com/yuimarudev"
+    },
+    "motd": {
+      "url": "https://youtu.be/wRBNKv7eRiI",
+      "alternative_image_url": "https://r2.ona.la/404.png"
+    },
+    "og": "ec25-j-561d6d7454b5c4980a35e174e6ee48788f37be4e.webp"
+  },
+  {
     "preview": "こんにちは、ゆいまるです。今日はQwikでブログを作ってみたので、思い立ったきっかけとか使ったものとか感想とか書いていこうかなと思います。 使ったもの・構成 ライブラリ Qwik Qwik City †理論上最強†になるために kiso.css 日本語を美しく表示するために 後述しますが、マジで最高です shiki コードブロックをハイライトするために 苦しい。 remark Markdownをパ",
     "filename": "hello",
     "published": "2025-12-02",

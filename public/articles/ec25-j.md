@@ -51,6 +51,7 @@ ModemManagerがインストールされていて、起動されていること�
      Active: active (running) since Thu 2026-01-08 10:57:31 JST; 24min ago
 ```
 
+
 ```command:bash
 [idolm@ster ~]$ lspci | grep Quectel
 
@@ -94,7 +95,8 @@ Options:
       --confirmation <CONFIRMATION>  Optional confirmation code
       --imei <IMEI>                  Optional IMEI to send to SM-DP+
   -h, --help                         Print help
-```
+```  
+  
 
 ```command:bash
 # ダウンロードと書き込み
@@ -551,6 +553,8 @@ if (Number.isFinite(POLL_MS) && POLL_MS > 0) {
   }, POLL_MS);
 }
 ```
+
+
 ```/etc/systemd/system/wwan-mm-watch.service:toml
 [Unit]
 Description=WWAN bring-up watcher (ModemManager DBus)
