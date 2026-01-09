@@ -8,7 +8,7 @@ name = "ゆいまる"
 link = "https://github.com/yuimarudev"
 
 [motd]
-url = "https://youtu.be/wRBNKv7eRiI"
+url = "https://www.youtube.com/watch?v=wRBNKv7eRiI"
 alternative_image_url = "https://r2.ona.la/404.png"
 +++
 
