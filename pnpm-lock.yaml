@@ -17,6 +17,9 @@ importers:
       '@cloudflare/workers-types':
         specifier: ^4.20251202.0
         version: 4.20251202.0
+      '@fig/lezer-bash':
+        specifier: ^1.2.5
+        version: 1.2.5
       '@glypht/bundler-utils':
         specifier: ^0.0.8
         version: 0.0.8
@@ -62,6 +65,9 @@ importers:
       kiso.css:
         specifier: ^1.2.2
         version: 1.2.2
+      lezer-toml:
+        specifier: ^1.0.0
+        version: 1.0.0
       lizod:
         specifier: ^0.2.7
         version: 0.2.7(typescript@5.4.5)
@@ -478,6 +484,9 @@ packages:
   '@fastify/busboy@2.1.1':
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
+
+  '@fig/lezer-bash@1.2.5':
+    resolution: {integrity: sha512-Qvyz/wFybXJzx9VQ1H0MW0HM1o93i5fLbeiQRehMnd+YThdfh7z0m1C2EqWb0GF4cpOJEsFZd2x+NAdQf6uqog==}
 
   '@glypht/bundler-utils@0.0.8':
     resolution: {integrity: sha512-ZHet44BG6qWuRIi4CAPBvgVCbpSM1FVvAXqoA+eKjA4jjeEOEKKxuCrOD7e5Tk0gBy/pGsCARGKf5yAIjcObDw==}
@@ -1510,6 +1519,9 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
+  lezer-toml@1.0.0:
+    resolution: {integrity: sha512-WRzDzRWuXUU2L0RLUSkb5o9nRhMntko8Z2PF6QIHZV+y81RNSZ3XsmECyevYHazA5S9Q4iRLM7njyXNngzILyQ==}
+
   lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
     engines: {node: '>=10'}
@@ -2464,6 +2476,11 @@ snapshots:
     optional: true
 
   '@fastify/busboy@2.1.1': {}
+
+  '@fig/lezer-bash@1.2.5':
+    dependencies:
+      '@lezer/highlight': 1.2.3
+      '@lezer/lr': 1.4.5
 
   '@glypht/bundler-utils@0.0.8':
     dependencies:
@@ -3443,6 +3460,11 @@ snapshots:
       mime: 1.6.0
       needle: 3.3.1
       source-map: 0.6.1
+
+  lezer-toml@1.0.0:
+    dependencies:
+      '@lezer/highlight': 1.2.3
+      '@lezer/lr': 1.4.5
 
   lilconfig@2.1.0: {}
 

@@ -1,6 +1,6 @@
 .codeblock {
   color: var(--code-fg);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .codeblock pre {
@@ -35,4 +35,8 @@
   background: transparent;
   color: var(--code-fg);
   cursor: pointer;
+}
+
+.codeblock-wrapper {
+  margin: 2em auto;
 }

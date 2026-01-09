@@ -141,5 +141,5 @@ export const Renderer = component$<{
     });
 
     return result;
-  }
+  },
 );
