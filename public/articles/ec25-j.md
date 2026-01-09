@@ -12,6 +12,8 @@ url = "https://www.youtube.com/watch?v=wRBNKv7eRiI"
 alternative_image_url = "https://r2.ona.la/404.png"
 +++
 
+注意！この記事はまだ未完成です。
+
 # はじめに
 
 EC25-J (EC25JFAR06A06M4G), [9eSIM (v3)](https://www.9esim.com/), [anzu](https://github.com/yuimarudev/anzu), ModemManager, systemd-networkd, [hayate](https://github.com/yuimarudev/hayate), [chatty](https://gitlab.gnome.org/World/Chatty)を使用してeSIMプロファイルへの書き込みをしたり、インターネットと疎通したり、117への発信・SMSの送受信に成功したので、忘備録として手法を書いていきます。
