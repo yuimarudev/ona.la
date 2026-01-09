@@ -551,7 +551,7 @@ if (Number.isFinite(POLL_MS) && POLL_MS > 0) {
   }, POLL_MS);
 }
 ```
-```/etc/systemd/system/wwan-mm-watch.service
+```/etc/systemd/system/wwan-mm-watch.service:toml
 [Unit]
 Description=WWAN bring-up watcher (ModemManager DBus)
 Wants=ModemManager.service
