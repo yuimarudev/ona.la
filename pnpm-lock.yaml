@@ -63,8 +63,8 @@ importers:
         specifier: ^7.0.5
         version: 7.0.5
       kiso.css:
-        specifier: ^1.2.2
-        version: 1.2.2
+        specifier: ^1.2.3
+        version: 1.2.3
       lezer-toml:
         specifier: ^1.0.0
         version: 1.0.0
@@ -1642,8 +1642,8 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  kiso.css@1.2.2:
-    resolution: {integrity: sha512-lv5pmbiqfov6DRUnHmtqEit5DzAtFAtKL+Pw0X2cBHtq/fBmXkVe+DAFnTdvawuA8f3vly7yaLLha0nAMlSz5A==}
+  kiso.css@1.2.3:
+    resolution: {integrity: sha512-uZDh1/nhfMz1P29JWXMpS8W3K1LymS362Jeu24RDGJPn0mcLqApC0GwWgifs2bUHQb8wjjNuC+2Hbe5ql4dLQA==}
 
   launch-editor@2.12.0:
     resolution: {integrity: sha512-giOHXoOtifjdHqUamwKq6c49GzBdLjvxrd2D+Q4V6uOHopJv7p9VJxikDsQ/CBXZbEITgUqSVHXLTG3VhPP1Dg==}
@@ -3664,7 +3664,7 @@ snapshots:
 
   json5@2.2.3: {}
 
-  kiso.css@1.2.2: {}
+  kiso.css@1.2.3: {}
 
   launch-editor@2.12.0:
     dependencies:
