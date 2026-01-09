@@ -57,8 +57,7 @@ p code {
   background-color: var(--acc);
   font-family: "Courier New", Courier, monospace;
   border-radius: 4px;
-  margin: auto 0.25em;
-  padding: auto 0.25em;
+  padding: 0.15em 0.15em;
 }
 
 h1,

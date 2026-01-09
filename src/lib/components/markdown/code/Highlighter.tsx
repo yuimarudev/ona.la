@@ -10,6 +10,7 @@ import { highlightCode, classHighlighter } from "@lezer/highlight";
 import styles from "./code.module.css";
 import { color } from "./theme/theme";
 import { CodeBlock } from "./Code";
+import { LRParser } from "@lezer/lr";
 
 export const getParser = $(async (lang: string) => {
   if (!globalThis.parsers) globalThis.parsers = new Map();
@@ -21,9 +22,25 @@ export const getParser = $(async (lang: string) => {
 
   switch (lang.toLowerCase()) {
     case "js":
+    case "mjs":
+    case "cjs":
     case "javascript":
       parser = (await import("@lezer/javascript")).parser;
       candicates.push("js", "javascript");
+      break;
+    case "sh":
+    case "bash":
+      // @ts-expect-error fuck
+      parser = (await import("@fig/lezer-bash")).parser as LRParser;
+      candicates.push("sh", "bash");
+      break;
+    case "ini":
+    case "service":
+    case "config":
+    case "toml":
+      // @ts-expect-error fuck
+      parser = (await import("lezer-toml")).parser as LRParser;
+      candicates.push("ini", "service", "config", "toml");
       break;
     default:
       throw new Error("Unknown language: " + lang);
@@ -58,7 +75,7 @@ export const Highlighter = component$<{ lang: string; code: string }>(
               .at(0) ?? "oklch(0.929 0.013 255.508)";
           output.push({ text, classes, style: { color: style } });
         },
-        () => output.push("\n")
+        () => output.push("\n"),
       );
 
       return output;
@@ -83,7 +100,7 @@ export const Highlighter = component$<{ lang: string; code: string }>(
                 <span class={x.classes} style={x.style}>
                   {x.text}
                 </span>
-              )
+              ),
             )}
           </code>
         </pre>
@@ -91,5 +108,5 @@ export const Highlighter = component$<{ lang: string; code: string }>(
     ) : (
       <CodeBlock code={code} />
     );
-  }
+  },
 );
