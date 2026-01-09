@@ -46,7 +46,7 @@
     "kiso.css": "^1.2.2",
     "lezer-toml": "^1.0.0",
     "lizod": "^0.2.7",
-    "prettier": "3.6.2",
+    "prettier": "3.7.4",
     "remark": "^15.0.1",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.1",
