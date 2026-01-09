@@ -10,6 +10,7 @@ import { highlightCode, classHighlighter } from "@lezer/highlight";
 import styles from "./code.module.css";
 import { color } from "./theme/theme";
 import { CodeBlock } from "./Code";
+import { LRParser } from "@lezer/lr";
 
 export const getParser = $(async (lang: string) => {
   if (!globalThis.parsers) globalThis.parsers = new Map();
@@ -30,7 +31,7 @@ export const getParser = $(async (lang: string) => {
     case "sh":
     case "bash":
       // @ts-expect-error fuck
-      parser = (await import("@fig/lezer-bash")).parser;
+      parser = (await import("@fig/lezer-bash")).parser as LRParser;
       candicates.push("sh", "bash");
       break;
     case "ini":
@@ -38,7 +39,7 @@ export const getParser = $(async (lang: string) => {
     case "config":
     case "toml":
       // @ts-expect-error fuck
-      parser = (await import("lezer-toml")).parser;
+      parser = (await import("lezer-toml")).parser as LRParser;
       candicates.push("ini", "service", "config", "toml");
       break;
     default:
