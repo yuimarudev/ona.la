@@ -14,9 +14,10 @@ alternative_image_url = "https://r2.ona.la/404.png"
 
 # はじめに
 
-EC25-J (EC25JFAR06A06M4G), [9eSIM (v3)](https://www.9esim.com/), ModemManager, systemd-networkd, [gnome-calls](https://github.com/droidian/gnome-calls), [chatty](https://gitlab.gnome.org/World/Chatty) を使用してeSIMプロファイルへの書き込みをしたり、インターネットと疎通したり、117への発信・SMSの送受信に成功したので、忘備録として手法を書いていきます。
+EC25-J (EC25JFAR06A06M4G), [9eSIM (v3)](https://www.9esim.com/), [anzu](https://github.com/yuimarudev/anzu), ModemManager, systemd-networkd, [hayate](https://github.com/yuimarudev/hayate), [chatty](https://gitlab.gnome.org/World/Chatty)を使用してeSIMプロファイルへの書き込みをしたり、インターネットと疎通したり、117への発信・SMSの送受信に成功したので、忘備録として手法を書いていきます。
 
 参考までに、筆者の環境はこのようになっています。
+
 ```command:bash
 [idolm@ster ~]$ uname -a
 Linux ster 6.18.3-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Fri, 02 Jan 2026 17:52:43 +0000 x86_64 GNU/Linux
@@ -57,7 +58,7 @@ ModemManagerがインストールされていて、起動されていること�
 Bus 003 Device 005: ID 2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE modem
 ```
 
-最近の Liunx であれば、特に何も設定せずに認識されるはずです。何も出力されない場合は、自力でドライバを探してください。
+最近のLiunxであれば、特に何も設定せずに認識されるはずです。何も出力されない場合は、自力でドライバを探してください。
 
 次に、mmcli (ModemManager)を使い、ATコマンドを送るべきデバイスファイルを特定します。
 
@@ -82,7 +83,7 @@ Bus 003 Device 005: ID 2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE m
 
 ## eSIMプロファイルのダウンロード・書き込み
 
-EC25-JはeSIM(eUICC)をサポートしていませんが、9eSIMや5berなどのアダプターを使用することができます。[lpac](github.com/estkme-group/lpac)というソフトウェアにて、特定のフラグを有効にし環境変数を設定[^1]することによりPC/SCリーダーを使わずにATコマンド経由でモデム単体でのプロファイル操作が可能ですが、プロファイルのダウンロード・アクティベーション時にIMEIを指定した際、Segmentation faultが発生してしまいます。なので、今回は[anzu](https://github.com/yuimarudev/anzu)というソフトウェアを作成しました。まだ試験的なもので、不安定ですが、筆者の環境ではすべての機能を正常に動かすことに成功しました。ほとんどlpac/EasyLPACのRustリライトですが、既存ソフトウェアにある機能以外に、EC25-JでAPDUの通信が不安定になる現象への対策や、デバイスの自動検知、モデムの再起動を行えるインターフェイスをコマンドライン・グラフィカル両方で提供しています。
+EC25-JはeSIM(eUICC)をサポートしていませんが、9eSIMや5berなどのアダプターを使用することができます。[lpac](github.com/estkme-group/lpac)というソフトウェアにて、特定のフラグを有効にし環境変数を設定[^1]することによりPC/SCリーダーを使わずにATコマンド経由でモデム単体でのプロファイル操作が可能ですが、プロファイルのダウンロード・アクティベーション時にIMEIを指定した際、Segmentation faultが発生してしまいます。なので、今回は[anzu](https://github.com/yuimarudev/anzu)というソフトウェアを作成しました。まだ試験的なもので、不安定ですが、筆者の環境ではすべての機能を正常に動かすことに成功しました。ほとんどlpac/EasyLPACのATコマンド操作部分のRust移植ですが、既存ソフトウェアにある機能以外に、EC25-JでAPDUの通信が不安定になる現象への対策や、デバイスの自動検知、モデムの再起動を行えるインターフェイスをコマンドライン・グラフィカル両方で提供しています。
 
 ```command:bash
 [idolm@ster ~]$ anzu-cli profile download --help
@@ -116,15 +117,76 @@ Options:
 }
 ```
 
+## プロファイルの一覧取得と有効化
 
-## apnの設定
+anzu-cliを使用します。
+
+```command:bash
+[idolm@ster ~]$ sudo anzu-cli --output-type jsonl-progress profile list
+2026-01-09T00:36:39.989269Z  INFO anzu_core::at::transport: opening AT device device=/dev/ttyUSB3 baud=115200 timeout_ms=5000
+2026-01-09T00:36:39.999340Z  INFO anzu_core::at::transport: opening AT device device=/dev/ttyUSB3 baud=115200 timeout_ms=5000
+{"ts_unix_ms":1767918999000,"phase":"init","message":"list_profiles","counters":{"at_commands":0,"apdu_roundtrips":0,"retries":0}}
+{"ts_unix_ms":1767918999000,"phase":"euicc_command","message":"list profiles","counters":{"at_commands":0,"apdu_roundtrips":0,"retries":0}}
+{"ts_unix_ms":1767919000000,"phase":"done","message":"list_profiles done","counters":{"at_commands":0,"apdu_roundtrips":0,"retries":0}}
+[
+  {
+    "id": "8981090************",
+    "nickname": "RakutenPhase3Profile",
+    "state": "disabled"
+  },
+  {
+    "id": "8985235************",
+    "nickname": "WEBBING",
+    "state": "disabled"
+  }
+]
+```
+
+筆者は事前にプリペイドeSIMを書き込んでいたので、`RakutenPhase3Profile`以外にも`WEBBING`というプロファイルがあることがわかります。今回は`RakutenPhase3Profile`を有効化します。
+
+```command:bash
+[idolm@ster ~]$ sudo anzu-cli --output-type jsonl-progress profile enable 8981090************
+2026-01-09T00:37:56.719763Z  INFO anzu_core::at::transport: opening AT device device=/dev/ttyUSB3 baud=115200 timeout_ms=5000
+2026-01-09T00:37:56.728778Z  INFO anzu_core::at::transport: opening AT device device=/dev/ttyUSB3 baud=115200 timeout_ms=5000
+{"ts_unix_ms":1767919076000,"phase":"init","message":"enable_profile","counters":{"at_commands":0,"apdu_roundtrips":0,"retries":0}}
+{"ts_unix_ms":1767919076000,"phase":"euicc_command","message":"enable profile","counters":{"at_commands":0,"apdu_roundtrips":0,"retries":0}}
+{"ts_unix_ms":1767919076000,"phase":"done","message":"enable_profile done","counters":{"at_commands":0,"apdu_roundtrips":0,"retries":0}}
+null
+```
+
+そして、もう一度一覧を取得して状態を確認します。
+
+```command:bash
+[idolm@ster ~]$ sudo anzu-cli --output-type jsonl-progress profile list
+2026-01-09T00:40:49.037786Z  INFO anzu_core::at::transport: opening AT device device=/dev/ttyUSB3 baud=115200 timeout_ms=5000
+2026-01-09T00:40:49.049231Z  INFO anzu_core::at::transport: opening AT device device=/dev/ttyUSB3 baud=115200 timeout_ms=5000
+{"ts_unix_ms":1767919249000,"phase":"init","message":"list_profiles","counters":{"at_commands":0,"apdu_roundtrips":0,"retries":0}}
+{"ts_unix_ms":1767919249000,"phase":"euicc_command","message":"list profiles","counters":{"at_commands":0,"apdu_roundtrips":0,"retries":0}}
+{"ts_unix_ms":1767919249000,"phase":"done","message":"list_profiles done","counters":{"at_commands":0,"apdu_roundtrips":0,"retries":0}}
+[
+  {
+    "id": "8981090************",
+    "nickname": "RakutenPhase3Profile",
+    "state": "enabled"
+  },
+  {
+    "id": "8985235************",
+    "nickname": "WEBBING",
+    "state": "disabled"
+  }
+]
+```
+
+`RakutenPhase3Profile`が`enabled`になっていることがわかります。これで正しく有効化できていることが確認できました。
+
+## PDPコンテキストの設定
 
 筆者は楽天最強プランを使用していますが、あなたの利用キャリア・プランによって記述するべきものが異なる場合があります。
 
-本来、`mmcli --simple-connect ...`を使用して接続する際に指定できますが、なぜか楽天だけこのコマンドだけでは接続できませんでした。ATコマンドによる設定を事前に行う必要がありそうです。[^2]
+本来、`mmcli --simple-connect ...`を使用するだけで接続できるはずですが、なぜか楽天だけこのコマンドだけでは接続できませんでした。ATコマンドによる設定を事前に行う必要がありそうです。[^2]
 
 ```command:bash
-# 好きなツールを利用してください。screen 等で接続した場合、local echo が有効になっていない場合は自分の打ったコマンドが見えません。
+# 好きなツールを利用してください。screen等で接続した場合、local echoが有効になっていない場合は自分の打ったコマンドが見えません。
 [idolm@ster ~]$ sudo picocom -c /dev/ttyUSB3
 
 AT
@@ -159,9 +221,9 @@ OK
 
 最初に`AT`を送り接続できているかを確認しています。ここでは、`OK`と返ってきており、正常に通信できていることが確認できます。
 
-次は、`AT+CGDCONT=1,"IPV4V6","rakuten.jp"`というコマンドを送っています。`rakuten.jp`は適宜置き換えてください。`IPV4V6`についてですが、通信できない場合のみ`IP`に置き換えてみてください。
+次は、`AT+CGDCONT=1,"IPV4V6","rakuten.jp"`というコマンドを送っています。`rakuten.jp`は適宜置き換えてください。`IPV4V6`についてですが、通信できない場合のみ`IP`(IPv4 Only)に置き換えてみてください。
 
-そして、設定されたか確認するために、`AT+CGDCONT?`を送信しています。注意点として、出力が長い場合、最後まで表示されないことがあるので、`OK`が出力されるまで送信する必要があります。また、`3`,`4`が存在しない場合、発信やSMSの送受信ができないので、設定する必要があります。[^3]
+そして、正しく設定されているか確認するために、`AT+CGDCONT?`を送信しています。注意点として、ModemManager使用中など他のソフトウェアが制御をしている場合やモデムの調子が悪い場合、最後まで表示されないことがあるので、`OK`が出力されるまで送信する必要があります。また、`2`,`3`,`4`が存在しない場合、発信やSMSの送受信ができないので、設定する必要があります。[^3]
 
 ```command:bash
 # 好きなツールを利用してください。screen 等で接続した場合、local echo が有効になっていないため自分の打ったものが見えない場合があります。
@@ -541,16 +603,31 @@ WantedBy=multi-user.target
 `ping`コマンドでインターフェイスを指定して疎通確認をする
 
 ```command:bash
-ping -I wwan0 8.8.8.8
+[idolm@ster ~]$ ping -I wwan0 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 送信元 10.124.124.113 wwan0: 56(84) バイトのデータ
+64 バイト応答 送信元 8.8.8.8: icmp_seq=1 ttl=112 時間=40.4 ミリ秒
+64 バイト応答 送信元 8.8.8.8: icmp_seq=2 ttl=112 時間=27.1 ミリ秒
+64 バイト応答 送信元 8.8.8.8: icmp_seq=3 ttl=112 時間=25.3 ミリ秒
+64 バイト応答 送信元 8.8.8.8: icmp_seq=4 ttl=112 時間=38.6 ミリ秒
+64 バイト応答 送信元 8.8.8.8: icmp_seq=5 ttl=112 時間=26.0 ミリ秒
+64 バイト応答 送信元 8.8.8.8: icmp_seq=6 ttl=112 時間=32.8 ミリ秒
+^C
+--- 8.8.8.8 ping 統計 ---
+送信パケット数 6, 受信パケット数 6, 0% packet loss, time 5007ms
+rtt min/avg/max/mdev = 25.339/31.691/40.354/6.036 ms
 ```
 
-# 通話とメッセージ
+# メッセージ
 
-あとで書く　下記以外の問題は全てが正常に動作します
+chattyを使用することにより、メッセージの送受信が可能です。Gnomeと統合されているため、通知を得ることも可能です。
+
+# でんわと録音
+
+あとで書く
 
 # 既知の問題
 
-通話にて、発信と受信・応答には成功しますが、音声が聞こえない問題があります。おそらくクライアントの問題であるので、gnome-calls以外のクライアントを探しています。
+ModemManager使用中（というよりかは、通信が発生しているとき）にanzuを使用すると、高確率で操作が失敗します。
 
 # おわりに
 
