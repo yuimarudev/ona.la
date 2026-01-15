@@ -31,6 +31,7 @@
     "@fig/lezer-bash": "^1.2.5",
     "@glypht/bundler-utils": "^0.0.8",
     "@glypht/core": "^0.0.8",
+    "@lezer/common": "^1.5.0",
     "@lezer/highlight": "^1.2.3",
     "@lezer/javascript": "^1.5.4",
     "@lezer/lr": "^1.4.7",
