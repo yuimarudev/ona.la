@@ -501,6 +501,9 @@ packages:
   '@fig/lezer-bash@1.2.5':
     resolution: {integrity: sha512-Qvyz/wFybXJzx9VQ1H0MW0HM1o93i5fLbeiQRehMnd+YThdfh7z0m1C2EqWb0GF4cpOJEsFZd2x+NAdQf6uqog==}
 
+  '@fig/lezer-bash@1.2.5':
+    resolution: {integrity: sha512-Qvyz/wFybXJzx9VQ1H0MW0HM1o93i5fLbeiQRehMnd+YThdfh7z0m1C2EqWb0GF4cpOJEsFZd2x+NAdQf6uqog==}
+
   '@glypht/bundler-utils@0.0.8':
     resolution: {integrity: sha512-ZHet44BG6qWuRIi4CAPBvgVCbpSM1FVvAXqoA+eKjA4jjeEOEKKxuCrOD7e5Tk0gBy/pGsCARGKf5yAIjcObDw==}
 
@@ -2334,6 +2337,11 @@ snapshots:
     dependencies:
       '@lezer/highlight': 1.2.3
       '@lezer/lr': 1.4.7
+
+  '@fig/lezer-bash@1.2.5':
+    dependencies:
+      '@lezer/highlight': 1.2.3
+      '@lezer/lr': 1.4.5
 
   '@glypht/bundler-utils@0.0.8':
     dependencies:
