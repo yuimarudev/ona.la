@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@builder.io/qwik':
         specifier: latest
-        version: 1.19.1(vite@7.3.1(@types/node@25.2.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0))
+        version: 1.19.2(vite@7.3.1(@types/node@25.2.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0))
       '@builder.io/qwik-city':
         specifier: ^1.19.0
         version: 1.19.0(@types/node@25.2.1)(less@4.5.1)(rollup@4.59.0)(sass@1.97.2)(stylus@0.62.0)(typescript@5.9.3)
@@ -43,7 +43,7 @@ importers:
         version: 0.1.90
       '@qwikest/icons':
         specifier: ^0.0.13
-        version: 0.0.13(@builder.io/qwik@1.19.1(vite@7.3.1(@types/node@25.2.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)))
+        version: 0.0.13(@builder.io/qwik@1.19.2(vite@7.3.1(@types/node@25.2.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)))
       '@tsconfig/strictest':
         specifier: ^2.0.8
         version: 2.0.8
@@ -99,8 +99,8 @@ importers:
         specifier: latest
         version: 5.2.0(typescript@5.9.3)
       undici:
-        specifier: ^7.20.0
-        version: 7.20.0
+        specifier: ^7.24.0
+        version: 7.24.0
       vite:
         specifier: 7.3.1
         version: 7.3.1(@types/node@25.2.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)
@@ -126,8 +126,8 @@ packages:
     resolution: {integrity: sha512-TAXSDRYPXVX4cKKmvMReCDyjjGLnzkCLNQvVfcNPsK/9xSZwUR5AZF22c/XSLv6g17QnWHKSfVdZ1idtncl7LQ==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
 
-  '@builder.io/qwik@1.19.1':
-    resolution: {integrity: sha512-dHBg96aZu2EuWbt9taPYyneo0jL1swG+GniguzDN31D4+rOXTbJObDIuo4uBkUieOvs6gLYnCvf7AlRl0b3mvg==}
+  '@builder.io/qwik@1.19.2':
+    resolution: {integrity: sha512-aLQIZm3BdX6jStSR6XdXhT9jQo5JN9bxuYJOD8p5IhZxBNgjQaRwIfZkXksgs6RkzdTsSpXo5+G6lkb/jMZQsg==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
     hasBin: true
     peerDependencies:
@@ -2043,8 +2043,8 @@ packages:
     resolution: {integrity: sha512-y+8YjDFzWdQlSE9N5nzKMT3g4a5UBX1HKowfdXh0uvAnTaqqwqB92Jt4UXBAeKekDs5IaDKyJFR4X1gYVCgXcw==}
     engines: {node: '>=20.18.1'}
 
-  undici@7.20.0:
-    resolution: {integrity: sha512-MJZrkjyd7DeC+uPZh+5/YaMDxFiiEEaDgbUSVMXayofAkDWF1088CDo+2RPg7B1BuS1qf1vgNE7xqwPxE0DuSQ==}
+  undici@7.24.0:
+    resolution: {integrity: sha512-jxytwMHhsbdpBXxLAcuu0fzlQeXCNnWdDyRHpvWsUl8vd98UwYdl9YTyn8/HcpcJPC3pwUveefsa3zTxyD/ERg==}
     engines: {node: '>=20.18.1'}
 
   unenv@2.0.0-rc.24:
@@ -2215,7 +2215,7 @@ snapshots:
       '@types/mdx': 2.0.13
       source-map: 0.7.6
       svgo: 3.3.2
-      undici: 7.20.0
+      undici: 7.24.0
       valibot: 1.2.0(typescript@5.9.3)
       vfile: 6.0.3
       vite: 7.3.1(@types/node@25.2.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)
@@ -2237,7 +2237,7 @@ snapshots:
       - typescript
       - yaml
 
-  '@builder.io/qwik@1.19.1(vite@7.3.1(@types/node@25.2.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0))':
+  '@builder.io/qwik@1.19.2(vite@7.3.1(@types/node@25.2.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0))':
     dependencies:
       csstype: 3.2.3
       launch-editor: 2.12.0
@@ -2721,9 +2721,9 @@ snapshots:
 
   '@poppinss/exception@1.2.3': {}
 
-  '@qwikest/icons@0.0.13(@builder.io/qwik@1.19.1(vite@7.3.1(@types/node@25.2.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)))':
+  '@qwikest/icons@0.0.13(@builder.io/qwik@1.19.2(vite@7.3.1(@types/node@25.2.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)))':
     dependencies:
-      '@builder.io/qwik': 1.19.1(vite@7.3.1(@types/node@25.2.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0))
+      '@builder.io/qwik': 1.19.2(vite@7.3.1(@types/node@25.2.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0))
 
   '@rollup/pluginutils@5.3.0(rollup@4.59.0)':
     dependencies:
@@ -2993,7 +2993,7 @@ snapshots:
       parse5: 7.3.0
       parse5-htmlparser2-tree-adapter: 7.1.0
       parse5-parser-stream: 7.1.2
-      undici: 7.20.0
+      undici: 7.24.0
       whatwg-mimetype: 4.0.0
 
   chokidar@4.0.3:
@@ -4322,7 +4322,7 @@ snapshots:
 
   undici@7.18.2: {}
 
-  undici@7.20.0: {}
+  undici@7.24.0: {}
 
   unenv@2.0.0-rc.24:
     dependencies:
