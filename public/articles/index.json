@@ -1,6 +1,6 @@
 [
   {
-    "preview": "注意！この記事はまだ未完成です。 はじめに EC25-J (EC25JFAR06A06M4G),  9eSIM (v3) ,  anzu , ModemManager, systemd-networkd,  hayate ,  chatty を使用してeSIMプロファイルへの書き込みをしたり、インターネットと疎通したり、117への発信・SMSの送受信に成功したので、忘備録として手法を書いていきます",
+    "preview": "はじめに EC25-J (EC25JFAR06A06M4G),  9eSIM (v3) ,  anzu , ModemManager, systemd-networkd,  hayate ,  chatty を使用してeSIMプロファイルへの書き込みをしたり、インターネットと疎通したり、117への発信・SMSの送受信に成功したので、忘備録として手法を書いていきます。 参考までに、筆者の環境はこのよ",
     "filename": "ec25-j",
     "published": "2026-01-08",
     "title": "EC25-J(+9eSIM)に全部賭けろ",
@@ -30,11 +30,7 @@
     "updated": "2025-12-05",
     "title": "Qwikでブログを作る",
     "subtitle": "逆張りオタクは最強を目指したかった",
-    "tags": [
-      "パソカタ",
-      "オタク",
-      "qwik"
-    ],
+    "tags": ["パソカタ", "オタク", "qwik"],
     "author": {
       "name": "ゆいまる",
       "link": "https://github.com/yuimarudev"
