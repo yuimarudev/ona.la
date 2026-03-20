@@ -27,7 +27,7 @@
   "devDependencies": {
     "@builder.io/qwik": "latest",
     "@builder.io/qwik-city": "^1.19.2",
-    "@cloudflare/workers-types": "^4.20260313.1",
+    "@cloudflare/workers-types": "^4.20260317.1",
     "@fig/lezer-bash": "^1.2.5",
     "@glypht/bundler-utils": "^0.0.8",
     "@glypht/core": "^0.0.8",
@@ -35,7 +35,7 @@
     "@lezer/highlight": "^1.2.3",
     "@lezer/javascript": "^1.5.4",
     "@lezer/lr": "^1.4.8",
-    "@napi-rs/canvas": "^0.1.96",
+    "@napi-rs/canvas": "^0.1.97",
     "@qwikest/icons": "^0.0.13",
     "@tsconfig/strictest": "^2.0.8",
     "@types/mdast": "^4.0.4",
@@ -55,11 +55,11 @@
     "smol-toml": "^1.6.0",
     "typescript": "5.9.3",
     "typescript-plugin-css-modules": "latest",
-    "undici": "^7.24.2",
-    "vite": "8.0.0",
+    "undici": "^7.24.5",
+    "vite": "8.0.1",
     "vite-plugin-generate-file": "^0.3.1",
-    "vite-plugin-wasm": "^3.5.0",
+    "vite-plugin-wasm": "^3.6.0",
     "vite-tsconfig-paths": "^6.1.1",
-    "wrangler": "^4.73.0"
+    "wrangler": "^4.76.0"
   }
 }
